@@ -15,6 +15,8 @@
         <module>magic-demo</module>
         <module>magic-mbg</module>
         <module>magic-auth</module>
+        <module>magic-admin</module>
+        <module>magic-monitor</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -49,7 +51,7 @@
         <knife4j.version>2.0.4</knife4j.version>
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
         <mall-common.version>1.0-SNAPSHOT</mall-common.version>
-        <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
+        <!--        <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>-->
         <magic-common.version>1.0-SNAPSHOT</magic-common.version>
         <magic-mbg.version>1.0-SNAPSHOT</magic-mbg.version>
     </properties>
@@ -101,13 +103,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--mall通用模块-->
+            <!--magic通用模块-->
             <dependency>
                 <groupId>com.zju.dq</groupId>
                 <artifactId>magic-common</artifactId>
                 <version>${magic-common.version}</version>
             </dependency>
-            <!--mall中MBG生成模块-->
+            <!--magic中MBG生成模块-->
             <dependency>
                 <groupId>com.zju.dq</groupId>
                 <artifactId>magic-mbg</artifactId>
@@ -232,7 +234,7 @@
                     <!--</execution>-->
                     <!--</executions>-->
                     <configuration>
-                        <imageName>mall/${project.artifactId}:${project.version}</imageName>
+                        <imageName>magic/${project.artifactId}:${project.version}</imageName>
                         <dockerHost>${docker.host}</dockerHost>
                         <baseImage>java:8</baseImage>
                         <entryPoint>["java", "-jar",

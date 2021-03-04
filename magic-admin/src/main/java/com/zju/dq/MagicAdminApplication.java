@@ -7,14 +7,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author Linker
- * @date 2021/3/3 10:39
+ * @date 2021/3/4 10:46
  * @description：
  */
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = "com.zju.dq")
-public class MagicAuthApplication {
+@SpringBootApplication
+public class MagicAdminApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MagicAuthApplication.class, args);
+        SpringApplication.run(MagicAdminApplication.class, args);
     }
 }
