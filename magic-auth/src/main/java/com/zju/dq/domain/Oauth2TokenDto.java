@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @author Linker
  * @date 2021/3/3 11:19
- * @description：
+ * @description：Oauth2获取Token返回信息封装
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

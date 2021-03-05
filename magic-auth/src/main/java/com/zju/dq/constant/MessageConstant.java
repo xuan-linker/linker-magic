@@ -3,7 +3,7 @@ package com.zju.dq.constant;
 /**
  * @author Linker
  * @date 2021/3/3 11:06
- * @description：
+ * @description：消息常量
  */
 public class MessageConstant {
 

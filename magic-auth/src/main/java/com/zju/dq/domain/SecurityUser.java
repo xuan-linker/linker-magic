@@ -10,7 +10,7 @@ import java.util.Collection;
 /**
  * @author Linker
  * @date 2021/3/3 10:45
- * @description：
+ * @description：登录用户信息
  */
 @Data
 public class SecurityUser implements UserDetails {

@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * @author Linker
  * @date 2021/3/3 10:53
- * @description：
+ * @description：认证服务器配置
  */
 @AllArgsConstructor
 @Configuration
