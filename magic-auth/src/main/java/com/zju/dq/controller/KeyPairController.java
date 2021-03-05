@@ -3,6 +3,7 @@ package com.zju.dq.controller;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,9 @@ public class KeyPairController {
 
     @Autowired
     private KeyPair keyPair;
+
+    @Autowired
+    private TokenEndpoint tokenEndpoint;
 
     @GetMapping("/rsa/publicKey")
     public Map<String, Object> getKey() {
