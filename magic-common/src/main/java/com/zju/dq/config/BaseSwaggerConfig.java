@@ -19,6 +19,7 @@ import java.util.List;
  * @description：Swagger基础配置
  */
 public abstract class BaseSwaggerConfig {
+
     @Bean
     public Docket createRestApi() {
         SwaggerProperties swaggerProperties = swaggerProperties();
@@ -34,7 +35,6 @@ public abstract class BaseSwaggerConfig {
         return docket;
     }
 
-
     private ApiInfo apiInfo(SwaggerProperties swaggerProperties) {
         return new ApiInfoBuilder()
                 .title(swaggerProperties.getTitle())
@@ -44,10 +44,10 @@ public abstract class BaseSwaggerConfig {
                 .build();
     }
 
-    private List<ApiKey> securitySchemes() {
+    private List<SecurityScheme> securitySchemes() {
         //设置请求头信息
-        List<ApiKey> result = new ArrayList<>();
-        ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
+        List<SecurityScheme> result = new ArrayList<>();
+        SecurityScheme apiKey = new ApiKey("Authorization", "Authorization", "header");
         result.add(apiKey);
         return result;
     }
@@ -79,5 +79,4 @@ public abstract class BaseSwaggerConfig {
      * 自定义Swagger配置
      */
     public abstract SwaggerProperties swaggerProperties();
-
 }

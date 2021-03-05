@@ -5,12 +5,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * @author Linker
- * @date 2021/3/3 10:45
- * @description：登录用户信息
+ * 登录用户信息
  */
 @Data
 public class SecurityUser implements UserDetails {
@@ -41,44 +40,54 @@ public class SecurityUser implements UserDetails {
     private Collection<SimpleGrantedAuthority> authorities;
 
     public SecurityUser() {
+
     }
 
-    public SecurityUser(UserDto userDto){
-
+    public SecurityUser(UserDto userDto) {
+        this.setId(userDto.getId());
+        this.setUsername(userDto.getUsername());
+        this.setPassword(userDto.getPassword());
+        this.setEnabled(userDto.getStatus() == 1);
+        this.setClientId(userDto.getClientId());
+        if (userDto.getRoles() != null) {
+            authorities = new ArrayList<>();
+            userDto.getRoles().forEach(item -> authorities.add(new SimpleGrantedAuthority(item)));
+        }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return this.enabled;
     }
+
 }

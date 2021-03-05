@@ -19,12 +19,11 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author Linker
- * @date 2021/3/3 10:56
- * @description：用户管理业务类
+ * 用户管理业务类
  */
 @Service
 public class UserServiceImpl implements UserDetailsService {
+
     @Autowired
     private UmsAdminService adminService;
     @Autowired
@@ -36,12 +35,12 @@ public class UserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String clientId = request.getParameter("client_id");
         UserDto userDto;
-        if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId)) {
+        if(AuthConstant.ADMIN_CLIENT_ID.equals(clientId)){
             userDto = adminService.loadUserByUsername(username);
-        } else {
+        }else{
             userDto = memberService.loadUserByUsername(username);
         }
-        if (userDto == null) {
+        if (userDto==null) {
             throw new UsernameNotFoundException(MessageConstant.USERNAME_PASSWORD_ERROR);
         }
         userDto.setClientId(clientId);
@@ -57,4 +56,5 @@ public class UserServiceImpl implements UserDetailsService {
         }
         return securityUser;
     }
+
 }

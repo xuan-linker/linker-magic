@@ -11,9 +11,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.util.Map;
 
 /**
- * @author Linker
- * @date 2021/3/3 17:03
- * @description：获取RSA公钥接口
+ * 获取RSA公钥接口
  */
 @RestController
 public class KeyPairController {
@@ -27,16 +25,5 @@ public class KeyPairController {
         RSAKey key = new RSAKey.Builder(publicKey).build();
         return new JWKSet(key).toJSONObject();
     }
-    @GetMapping("/test")
-    public Map<String, Object> test() {
-        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-        RSAKey key = new RSAKey.Builder(publicKey).build();
-        return new JWKSet(key).toJSONObject();
-    }
-    @GetMapping("/test2")
-    public Map<String, Object> test2() {
-        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-        RSAKey key = new RSAKey.Builder(publicKey).build();
-        return new JWKSet(key).toJSONObject();
-    }
+
 }

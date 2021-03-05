@@ -1,9 +1,7 @@
 package com.zju.dq.constant;
 
 /**
- * @author Linker
- * @date 2021/3/3 11:06
- * @description：消息常量
+ * 消息常量
  */
 public class MessageConstant {
 
@@ -20,4 +18,5 @@ public class MessageConstant {
     public static final String ACCOUNT_EXPIRED = "该账号已过期，请联系管理员!";
 
     public static final String PERMISSION_DENIED = "没有访问权限，请联系管理员!";
+
 }

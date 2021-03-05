@@ -23,9 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Linker
- * @date 2021/3/3 10:53
- * @description：认证服务器配置
+ * 认证服务器配置
  */
 @AllArgsConstructor
 @Configuration
@@ -83,7 +81,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public KeyPair keyPair() {
         //从classpath下的证书中获取秘钥对
-        org.springframework.security.rsa.crypto.KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "123456".toCharArray());
+        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "123456".toCharArray());
         return keyStoreKeyFactory.getKeyPair("jwt", "123456".toCharArray());
     }
 

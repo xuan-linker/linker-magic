@@ -21,9 +21,7 @@ import java.security.Principal;
 import java.util.Map;
 
 /**
- * @author Linker
- * @date 2021/3/3 16:46
- * @description：自定义Oauth2获取令牌接口
+ * 自定义Oauth2获取令牌接口
  */
 @RestController
 @Api(tags = "AuthController", description = "认证中心登录认证")

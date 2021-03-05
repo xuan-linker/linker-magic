@@ -11,9 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Linker
- * @date 2021/3/3 10:42
- * @description：JWT内容增强器
+ * JWT内容增强器
  */
 @Component
 public class JwtTokenEnhancer implements TokenEnhancer {
