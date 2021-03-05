@@ -17,11 +17,24 @@ import java.util.Map;
  */
 @RestController
 public class KeyPairController {
+
     @Autowired
     private KeyPair keyPair;
 
     @GetMapping("/rsa/publicKey")
     public Map<String, Object> getKey() {
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        RSAKey key = new RSAKey.Builder(publicKey).build();
+        return new JWKSet(key).toJSONObject();
+    }
+    @GetMapping("/test")
+    public Map<String, Object> test() {
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        RSAKey key = new RSAKey.Builder(publicKey).build();
+        return new JWKSet(key).toJSONObject();
+    }
+    @GetMapping("/test2")
+    public Map<String, Object> test2() {
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         RSAKey key = new RSAKey.Builder(publicKey).build();
         return new JWKSet(key).toJSONObject();

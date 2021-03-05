@@ -25,6 +25,7 @@ import java.time.Duration;
  * @description：Redis基础配置
  */
 public class BaseRedisConfig {
+
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisSerializer<Object> serializer = redisSerializer();
@@ -64,4 +65,5 @@ public class BaseRedisConfig {
     public RedisService redisService(){
         return new RedisServiceImpl();
     }
+
 }

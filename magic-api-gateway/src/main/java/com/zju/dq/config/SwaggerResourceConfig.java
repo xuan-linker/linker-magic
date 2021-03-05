@@ -23,6 +23,7 @@ import java.util.List;
 @Primary
 @AllArgsConstructor
 public class SwaggerResourceConfig implements SwaggerResourcesProvider {
+
     private final RouteLocator routeLocator;
     private final GatewayProperties gatewayProperties;
 
@@ -40,6 +41,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
                             predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0")
                                     .replace("**", "v2/api-docs"))));
         });
+
         return resources;
     }
 

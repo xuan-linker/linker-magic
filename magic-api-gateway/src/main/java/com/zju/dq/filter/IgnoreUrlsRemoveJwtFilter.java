@@ -24,7 +24,6 @@ import java.util.List;
 public class IgnoreUrlsRemoveJwtFilter implements WebFilter {
     @Autowired
     private IgnoreUrlsConfig ignoreUrlsConfig;
-
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
